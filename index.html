@@ -1,20 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aswito</title>
-    <link rel="shortcut icon" href="src/favicon_data/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aswito</title>
+  <link rel="shortcut icon" href="src/favicon data/favicon.ico" type="image/x-icon">
+  <style>
+    :root {
+      --bg: #f0f2f5;
+      --card-bg: #ffffff;
+      --text: #222;
+      --subtext: #555;
+      --button-bg: #007bff;
+      --button-hover: #0056b3;
+      --border: #ddd;
+    }
 
+    body.dark {
+      --bg: #111;
+      --card-bg: #1c1c1c;
+      --text: #e3e3e3;
+      --subtext: #bbbbbb;
+      --button-bg: #3498db;
+      --button-hover: #1f7cb3;
+      --border: #333;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      transition: background 0.3s ease;
+    }
+
+    .container, #userBox {
+      background: var(--card-bg);
+      width: 380px;
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      text-align: center;
+      transition: 0.3s ease;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 0.6s forwards ease-out;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      margin-bottom: 10px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    input {
+      width: 90%;
+      padding: 12px;
+      margin: 8px 0;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 15px;
+      background: var(--card-bg);
+      color: var(--text);
+    }
+
+    button {
+      width: 95%;
+      padding: 12px;
+      font-size: 16px;
+      background: var(--button-bg);
+      border: none;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: 0.2s ease;
+    }
+
+    button:hover {
+      background: var(--button-hover);
+    }
+
+    .divider {
+      margin: 20px 0;
+      font-size: 14px;
+      color: var(--subtext);
+    }
+
+    #userBox {
+      display: none;
+    }
+
+    #userPic {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+      border: 4px solid var(--button-bg);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    #userName {
+      font-size: 22px;
+      font-weight: bold;
+      color: var(--text);
+    }
+
+    #userUsername {
+      font-size: 15px;
+      color: var(--subtext);
+    }
+
+    #logoutBtn {
+      margin-top: 18px;
+      background: #e74c3c;
+    }
+
+    #logoutBtn:hover {
+      background: #c0392b;
+    }
+
+    /* 🔥 Tiny Dark Mode Button */
+    .theme-toggle {
+      position: fixed;
+      top: 12px;
+      right: 12px;
+      width: 32px;
+      height: 32px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--text);
+      padding: 0;
+      transition: 0.3s;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+  </style>
 </head>
 <body>
-    <h1>Mathematics + JANI + Aswito</h1>
 
-    <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-login="aswito_bot" data-size="large" data-onauth="onTelegramAuth(user)" data-request-access="write"></script>
-    <script type="text/javascript">
-     function onTelegramAuth(user) {
-    alert('Logged in as ' + user.first_name + ' ' + user.last_name + ' (' + user.id + (user.username ? ', @' + user.username : '') + ')');
-  }
-</script>
+  <!-- Tiny Dark Mode Button -->
+  <div class="theme-toggle" onclick="toggleTheme()">🌙</div>
+
+  <!-- LOGIN FORM -->
+  <div class="container" id="loginContainer">
+    <h2>Create Account</h2>
+
+    <input type="text" placeholder="Your Name" />
+    <input type="email" placeholder="Email Address" />
+    <input type="password" placeholder="Password" />
+    <button>Create Account</button>
+
+    <div class="divider">OR</div>
+
+    <!-- Telegram Login Button -->
+    <script async src="https://telegram.org/js/telegram-widget.js?22"
+      data-telegram-login="aswito_bot"
+      data-size="large"
+      data-onauth="onTelegramAuth(user)"
+      data-request-access="write">
+    </script>
+  </div>
+
+  <!-- LOGGED-IN USER BOX -->
+  <div id="userBox">
+    <img id="userPic" src="" alt="User Photo">
+    <div id="userName"></div>
+    <div id="userUsername"></div>
+    <button id="logoutBtn" onclick="logout()">Logout</button>
+  </div>
+
+  <script>
+    /* ---------------------------------------
+       🌙 DARK MODE TOGGLE + ICON UPDATE
+    ---------------------------------------- */
+    function updateThemeIcon() {
+      document.querySelector(".theme-toggle").innerText =
+        document.body.classList.contains("dark") ? "☀️" : "🌙";
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle("dark");
+
+      const isDark = document.body.classList.contains("dark");
+      localStorage.setItem("darkMode", isDark ? "enabled" : "disabled");
+
+      updateThemeIcon();
+    }
+
+    // Load dark mode on start
+    if (localStorage.getItem("darkMode") === "enabled") {
+      document.body.classList.add("dark");
+    }
+    updateThemeIcon();
+
+    /* ---------------------------------------
+       🔥 TELEGRAM AUTH HANDLER
+    ---------------------------------------- */
+    function onTelegramAuth(user) {
+      console.log("Telegram Login Data:", user);
+
+      // Save session
+      localStorage.setItem("telegramUser", JSON.stringify(user));
+
+      showUser(user);
+    }
+
+    /* ---------------------------------------
+       🔥 SHOW USER PROFILE
+    ---------------------------------------- */
+    function showUser(user) {
+      document.getElementById("loginContainer").style.display = "none";
+      document.getElementById("userBox").style.display = "block";
+
+      document.getElementById("userPic").src =
+        user.photo_url || "https://via.placeholder.com/100";
+
+      document.getElementById("userName").innerText =
+        user.first_name + (user.last_name ? " " + user.last_name : "");
+
+      document.getElementById("userUsername").innerText =
+        user.username ? "@" + user.username : "(No username)";
+    }
+
+    /* ---------------------------------------
+       🔥 AUTO LOGIN FROM LOCAL STORAGE
+    ---------------------------------------- */
+    const savedUser = localStorage.getItem("telegramUser");
+    if (savedUser) {
+      showUser(JSON.parse(savedUser));
+    }
+
+    /* ---------------------------------------
+       🔥 LOGOUT
+    ---------------------------------------- */
+    function logout() {
+      localStorage.removeItem("telegramUser");
+      location.reload();
+    }
+  </script>
+
 </body>
 </html>
+
