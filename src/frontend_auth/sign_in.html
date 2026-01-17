@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in</title>
+    <link rel="shortcut icon" href="src/favicon_data/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <h1>Sign in</h1>
+    <hr>
+    <form action="sign_in.js" method="get">
+        <section>
+            <label for="email">Email</label>
+            <input required type="email" name="email" id="email" aria-required="true">
+        </section>
+        <section>
+            <label for="password">Password:</label>
+            <input required type="password" name="password" id="password" autocomplete="current-password" aria-required="true">
+        </section>
+        <button>Sign in</button>
+    </form>
+</body>
+</html>
