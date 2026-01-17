@@ -1,0 +1,116 @@
+/* Mobile first */
+      :root {
+        --bg: #ffffff;
+        --text: #202124;
+        --card-bg: #ffffff;
+        --border: #dadce0;
+        --button-bg: #1a73e8;
+        --button-hover: #1669d5;
+      }
+
+      body.dark {
+        --bg: #202124;
+        --text: #e8eaed;
+        --card-bg: #2d2e31;
+        --border: #5f6368;
+        --button-bg: #8ab4f8;
+        --button-hover: #93baf9;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: Arial, sans-serif;
+        transition: 0.3s ease-in-out;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+      }
+      #home,
+      #navbar,
+      #toolbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10%;
+      }
+      /* HOME PAGE */
+      #home-page {
+        max-width: 600px;
+        margin: 40px auto;
+        background: var(--card-bg);
+        padding: 15px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      }
+
+      /* LOGIN PAGE */
+      #login-page {
+        display: none;
+        max-width: 85%;
+        margin: 10px auto;
+      }
+      #go-back {
+        background: transparent;
+        border: none;
+        font-size: 30px;
+        cursor: pointer;
+        margin-bottom: 10px;
+        color: #1669d5;
+      }
+
+      #loginContainer,
+      #createAccount {
+        background: var(--card-bg);
+        padding: 18px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      #loginContainer input {
+        padding: 12px;
+        border-radius: 6px;
+        border: 1px solid var(--border);
+        width: 100%;
+        outline: none;
+        font-size: 15px;
+      }
+
+      #loginContainer button {
+        background: var(--button-bg);
+        border: none;
+        padding: 12px;
+        color: white;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: 0.2s;
+      }
+      #stories {
+        display: none;
+        max-width: 600px;
+        margin: 40px auto;
+        background: var(--card-bg);
+        padding: 15px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      }
+      #story {
+        max-width: 600px;
+        margin: 40px auto;
+        background: var(--card-bg);
+        padding: 15px;
+        border: 1px solid black;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      }

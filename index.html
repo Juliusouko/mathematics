@@ -4,6 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aswito</title>
+    <meta name="description" content="This is aswito.com an upcoming website being developed in kenya">
+    <meta name="keywords" content=",sweet,kenya,news,politics,sweet stories">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta name="news_keywords" content=",maneno tamu,kenya,news,politics">
+    <meta name="article:publisher" content="https://www.aswito.com">
+    <meta property="og:title" content="Your Luo boyfriend should call you these sweet names according to KOT">
+    <meta property="og:description" content="Your Luo boyfriend should call you these sweet names according to KOT">
+    <meta property="og:locale" content="en_KE">
     <link
       rel="shortcut icon"
       href="./src/favicon/favicon.ico"
@@ -20,130 +29,31 @@
       rel="stylesheet"
     />
 
+    <!-- Google backward button -->
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=chevron_backward"
     />
 
+    <link rel="stylesheet" href="main.css" />
+
     <!-- Google Login -->
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
-
-    <style>
-      /* Mobile first */
-      :root {
-        --bg: #ffffff;
-        --text: #202124;
-        --card-bg: #ffffff;
-        --border: #dadce0;
-        --button-bg: #1a73e8;
-        --button-hover: #1669d5;
-      }
-
-      body.dark {
-        --bg: #202124;
-        --text: #e8eaed;
-        --card-bg: #2d2e31;
-        --border: #5f6368;
-        --button-bg: #8ab4f8;
-        --button-hover: #93baf9;
-      }
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      body {
-        background: var(--bg);
-        color: var(--text);
-        font-family: Arial, sans-serif;
-        transition: 0.3s ease-in-out;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        padding: 20px;
-      }
-      #home,
-      #navbar,
-      #toolbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 10%;
-      }
-      /* HOME PAGE */
-      #home-page {
-        max-width: 600px;
-        margin: 40px auto;
-        background: var(--card-bg);
-        padding: 15px;
-        border: 1px solid var(--border);
-        border-radius: 10px;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-      }
-
-      /* LOGIN PAGE */
-      #login-page {
-        display: none;
-        max-width: 85%;
-        margin: 10px auto;
-      }
-      #go-back {
-        background: transparent;
-        border: none;
-        font-size: 30px;
-        cursor: pointer;
-        margin-bottom: 10px;
-        color: #1669d5;
-      }
-
-      #loginContainer,
-      #createAccount {
-        background: var(--card-bg);
-        padding: 18px;
-        border-radius: 12px;
-        border: 1px solid var(--border);
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-      }
-      #loginContainer input {
-        padding: 12px;
-        border-radius: 6px;
-        border: 1px solid var(--border);
-        width: 100%;
-        outline: none;
-        font-size: 15px;
-      }
-
-      #loginContainer button {
-        background: var(--button-bg);
-        border: none;
-        padding: 12px;
-        color: white;
-        border-radius: 6px;
-        cursor: pointer;
-        font-size: 16px;
-        transition: 0.2s;
-      }
-    </style>
   </head>
+
   <body>
     <div id="home">
       <div id="navbar">
         <ul>
-          Home
+          <button type="button" id="btn-home">Home</button>
         </ul>
         <ul>
-          Products
-        </ul>
-        <ul>
-          About
+          <button type="button" id="btn-stories">Stories</button>
         </ul>
       </div>
       <div id="toolbar">
-        <div class="theme-toggle" onclick="toggleTheme()">🌙</div>
+        <div class="theme" onclick="toggleTheme()"></div>
         <div class="top-right-container">
           <div id="profile-btn">
             <span id="signin-icon" class="material-icons">account_circle</span>
@@ -151,19 +61,38 @@
         </div>
       </div>
     </div>
-    <hr style="border: none;"/>
+    <hr style="border: none" />
+
     <!-- HOME PAGE -->
-    <div class="home-page" id="home-page">
-      <h1 style="text-align: center">Best deals 🤩</h1>
+    <div class="main-content" id="main-content">
+      <div class="home-page" id="home-page">
+      <h1 style="text-align: center">Best deals &heartsuit; &heartsuit;</h1>
       <p style="font-style: italic">
-        Welcome to Aswito, home for A+ deals and tips to save your Liquid. Find
-        experts on shopping, vacations, marketing, trading, online betting we
-        also cover best places to party☺️. Planning on that vacation, what are
-        you waiting? get in the flow.
+        Get A+ deals. Make and to save your Liquid.
       </p>
     </div>
+    <div class="home-page" id="home-page"><p>shopping</p></div>
+    <div class="home-page" id="home-page"><p>Vacations</p></div>
+    <div class="home-page" id="home-page"><p>Marketing</p></div>
+    <div class="home-page" id="home-page"><p>Trading</p></div>
+    <div class="home-page" id="home-page"><p>Online Betting</p></div>
+    <div class="home-page" id="home-page"><p>Best places to party☺️</p></div>
+    <div class="home-page" id="home-page">
+      <p>Planning on a vacation? What are you waiting, get in the flow.</p>
+    </div>
+    </div>
 
-    <!-- LOGIN PAGE -->
+    <!-- stories -->
+     <div class="stories" id="stories">
+      <!-- inject stories -->
+       <div class="story" id="story">
+        <h2>Example</h2>
+        <hr>
+        <p>This is an <em>example</em> and it's very important! &hearts;</p> 
+       </div>
+     </div>
+
+    <!-- login -->
     <div id="login-page" class="page">
       <button id="go-back">
         <span class="material-symbols-outlined"> chevron_backward </span>
@@ -176,17 +105,45 @@
         <input type="password" placeholder="Password" />
         <button>Create Account</button> -->
         <form action="create_account.js" method="post" id="createAccount">
-            <label for="username">Username:</label>
-            <input required type="text" id="username" name="username" aria-required="true" placeholder="Username">
-            <label for="email">Email:</label>
-            <input required type="email" name="email" id="email" aria-describedby="email-validation" aria-required="true" placeholder="email">
-            <p id="status" style="color: red; display: none;">!! Please enter correct email format 🙃</p>
-            <label for="password">Password:</label>
-            <input required minlength="8" type="password" id="password" name="password" aria-describedby="password-minlength" aria-required="true" placeholder="password">
-            <p id="status" style="color: red; display: none;">minimum of 8 characters 💀</p>
-        <button type="button">Create account</button>
-    </form>
-        <!-- GOOGLE LOGIN BUTTON -->
+          <label for="username">Username:</label>
+          <input
+            required
+            type="text"
+            id="username"
+            name="username"
+            aria-required="true"
+            placeholder="Username"
+          />
+          <label for="email">Email:</label>
+          <input
+            required
+            type="email"
+            name="email"
+            id="email"
+            aria-describedby="email-validation"
+            aria-required="true"
+            placeholder="email"
+          />
+          <p id="status" style="color: red; display: none">
+            !! Please enter correct email format 🙃
+          </p>
+          <label for="password">Password:</label>
+          <input
+            required
+            minlength="8"
+            type="password"
+            id="password"
+            name="password"
+            aria-describedby="password-minlength"
+            aria-required="true"
+            placeholder="password"
+          />
+          <p id="status" style="color: red; display: none">
+            minimum of 8 characters 💀
+          </p>
+          <button type="button">Create account</button>
+        </form>
+        <!-- google login button -->
         <div
           id="g_id_onload"
           data-client_id="YOUR_GOOGLE_CLIENT_ID"
@@ -203,7 +160,7 @@
           data-shape="circle"
         ></div>
 
-        <!-- Telegram Login Button -->
+        <!-- telegram login button -->
         <script
           async
           src="https://telegram.org/js/telegram-widget.js?22"
@@ -214,76 +171,7 @@
         ></script>
       </div>
     </div>
-    <script>
-      document.getElementById("signin-icon").onclick = () => {
-        document.getElementById("home-page").style.display = "none";
-        document.getElementById("login-page").style.display = "block";
-      };
-
-      document.getElementById("go-back").onclick = () => {
-        document.getElementById("login-page").style.display = "none";
-        document.getElementById("home-page").style.display = "block";
-      };
-
-      function updateThemeIcon() {
-        document.querySelector(".theme-toggle").innerText =
-          document.body.classList.contains("dark") ? "☀️" : "🌙";
-      }
-
-      function toggleTheme() {
-        document.body.classList.toggle("dark");
-
-        const isDark = document.body.classList.contains("dark");
-        localStorage.setItem("darkMode", isDark ? "enabled" : "disabled");
-
-        updateThemeIcon();
-      }
-
-      // Load dark mode on start
-      if (localStorage.getItem("darkMode") === "enabled") {
-        document.body.classList.add("dark");
-      }
-      updateThemeIcon();
-
-      /* ---------------------------------------
-       🔥 TELEGRAM AUTH HANDLER
-    ---------------------------------------- */
-      function onTelegramAuth(user) {
-        console.log("Telegram Login Data:", user);
-
-        // Save session
-        localStorage.setItem("telegramUser", JSON.stringify(user));
-
-        showUser(user);
-      }
-
-      /* ---------------------------------------
-       🔥 SHOW USER PROFILE
-    ---------------------------------------- */
-      function showUser(user) {
-        document.getElementById("loginContainer").style.display = "none";
-        document.getElementById("userBox").style.display = "block";
-
-        document.getElementById("userPic").src =
-          user.photo_url || "https://via.placeholder.com/100";
-
-        document.getElementById("userName").innerText =
-          user.first_name + (user.last_name ? " " + user.last_name : "");
-
-        document.getElementById("userUsername").innerText = user.username
-          ? "@" + user.username
-          : "(No username)";
-      }
-
-      const savedUser = localStorage.getItem("telegramUser");
-      if (savedUser) {
-        showUser(JSON.parse(savedUser));
-      }
-
-      function logout() {
-        localStorage.removeItem("telegramUser");
-        location.reload();
-      }
-    </script>
+    <script src="/src/js/main.js"></script>
+    <script src="/src/js/story.js"></script>
   </body>
 </html>
