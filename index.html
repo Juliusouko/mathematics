@@ -8,31 +8,23 @@
   <meta name="description" content="This is aswito.com an upcoming website being developed in kenya" />
   <meta property="og:locale" content="en_KE" />
   <link rel="shortcut icon" href="./src/favicon/favicon.ico" type="image/x-icon" />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
   <link rel="stylesheet" href="/src/styles/main.css" />
-  <script src="https://accounts.google.com/gsi/client" async defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
 </head>
 
 <body>
-  <div class="home">
+  <nav class="nav">
     <ul>
       <button type="button" id="btn-home">Home</button>
     </ul>
     <ul>
       <button type="button" id="btn-stories">Stories</button>
     </ul>
-    <button><span class="material-symbols-outlined"> contact_page </span></button>
-    <button><span id="signin-icon" class="material-icons">account_circle</span></button>
-  </div>
+  </nav>
   <div class="telegram-login-widget">
     <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-login="aswito_bot" data-size="small"
       data-onauth="onTelegramAuth(user)" data-request-access="write"></script>
   </div>
   <script src="/src/js/main.js"></script>
-  <script src="/src/js/story.js"></script>
-  <script src="src/js/userLogic.js"></script>
 </body>
 
 </html>
