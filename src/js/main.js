@@ -1,15 +1,7 @@
 function onTelegramAuth(user) {
-  alert(
-    "Logged in as " +
-      user.first_name +
-      " " +
-      user.last_name +
-      " (" +
-      user.id +
-      (user.username ? ", @" + user.username : "") +
-      ")",
-  );
-  console.log("Telegram returned:", user);
+  console.log("Function triggered");
+
+  alert("Logged in as " + user.first_name);
 
   fetch("https://bushless-stochastically-colleen.ngrok-free.dev/data", {
     method: "POST",
@@ -18,7 +10,14 @@ function onTelegramAuth(user) {
     },
     body: JSON.stringify(user),
   })
-    .then((res) => res.json())
-    .then((data) => console.log("Server response:", data))
-    .catch((err) => console.error(err));
+    .then((res) => {
+      console.log("Fetch response received");
+      return res.json();
+    })
+    .then((data) => {
+      console.log("Server response:", data);
+    })
+    .catch((err) => {
+      console.error("Fetch error:", err);
+    });
 }
