@@ -3,7 +3,7 @@ function onTelegramAuth(user) {
 
   alert("Logged in as " + user.first_name);
 
-  fetch("https://bushless-stochastically-colleen.ngrok-free.dev/login", {
+  fetch("https://bushless-stochastically-colleen.ngrok-free.dev/create", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
