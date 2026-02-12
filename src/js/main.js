@@ -1,4 +1,14 @@
 function onTelegramAuth(user) {
+  alert(
+    "Logged in as " +
+      user.first_name +
+      " " +
+      user.last_name +
+      " (" +
+      user.id +
+      (user.username ? ", @" + user.username : "") +
+      ")",
+  );
   console.log("Telegram returned:", user);
 
   fetch("https://bushless-stochastically-colleen.ngrok-free.dev/data", {
