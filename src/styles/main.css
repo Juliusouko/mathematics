@@ -198,56 +198,6 @@ body {
      font-size: 14px;
  }
 
- /* login.ejs */
- .g-auth-wrapper {
-     min-height: 85vh;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     background: #f8f9fa;
-     padding: 40px 20px;
- }
-
- .g-auth-card {
-     width: 100%;
-     max-width: 420px;
-     background: #ffffff;
-     padding: 48px 40px;
-     border-radius: 24px;
-     border: 1px solid #dadce0;
-     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-     text-align: center;
- }
-
- .g-auth-header h1 {
-     font-size: 22px;
-     font-weight: 600;
-     margin-bottom: 20px;
- }
-
- .g-auth-header h2 {
-     font-size: 28px;
-     font-weight: 500;
-     margin-bottom: 8px;
- }
-
- .g-auth-header p {
-     color: #5f6368;
-     font-size: 14px;
-     margin-bottom: 40px;
- }
-
- .telegram-login-container {
-     display: flex;
-     justify-content: center;
-     margin-bottom: 40px;
- }
-
- .g-auth-footer {
-     font-size: 12px;
-     color: #5f6368;
- }
-
   @media (max-width: 900px) {
       .container {
           grid-template-columns: 1fr;
