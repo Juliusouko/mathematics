@@ -13,19 +13,22 @@
 
 <body>
   <nav class="nav">
-    <ul>
-      <button type="button" id="btn-home">Home</button>
-    </ul>
-    <ul>
-      <button type="button" id="btn-stories">Stories</button>
-    </ul>
+    <div class="home">
+      <ul>
+        <button type="button" id="btn-home">Home</button>
+      </ul>
+      <ul>
+        <button type="button" id="btn-stories">Stories</button>
+      </ul>
+    </div>
+    <div class="auth">
+      <ul>
+        <a href="http://api.aswito.com/dashboard"><button>Sign in</button></a>
+      </ul>
+    </div>
   </nav>
   <h1>This webapp is highly dependent on Telegram APIs.</h1>
-  <div class="telegram-login-widget">
-    <script src="/src/js/main.js"></script>
-    <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-login="aswito_bot"
-      data-size="medium" data-onauth="onTelegramAuth(user)" data-request-access="write"></script>
-  </div>
+  <script src="/src/js/main.js"></script>
 </body>
 
 </html>
