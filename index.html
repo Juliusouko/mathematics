@@ -9,6 +9,7 @@
   <meta property="og:locale" content="en_KE" />
   <link rel="shortcut icon" href="./src/favicon/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="/src/styles/main.css" />
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </head>
 
 <body>
@@ -17,56 +18,43 @@
   <div class="navbar">
     <h1>Aswito INC</h1>
     <nav>
-      <a href="#"><button class="btn-navbar">How to's</button></a>
-      <a href="#"><button class="btn-navbar">About</button></a>
+      <a href="#">How to's</a>
+      <a href="#">About</a>
       <a href="https://api.aswito.com/sign_in"><button class="btn-navbar">Sign in</button></a>
     </nav>
   </div>
 
-  <div class="container">
-    <article class="article">
-      <h1>This is the first blog on Aswito INC</h1>
-
-      <div class="meta">
-        <div class="author-avatar"><img src="/src/resources/julius_ouko.jpg" alt="julius_ouko"></div>
-        <span>By Julius Ouko</span>
-        <span>• Jan 15, 2026</span>
-        <span>• 8 min read</span>
-      </div>
-      <p>Whatever you're seeing took time and love for the game to accomplish.</p>
-      <h2>First feature: Sweet Blogs</h2>
-      <!-- Included if it requires code -->
-      <pre><code>fn new_website(rust) {} </code></pre>
-      <h2>To our user make sure you enjoy</h2>
-      <p>Life is short enjoy but do happy siiieet!</p>
-      
-      <h2>What is aswito all about</h2>
-      <p>This is a website for happy people, FYI.</p>
-    </article>
-
-  <aside class="sidebar">
-    <div class="toc">
-      <h2>What you missed</h2>
-      <h3>This week:</h3>
-      <a href="https://">Check Dr.Sweet ..</a>
-      <a href="https://">Why am I broke?</a>
-      <a href="https://">A date with Ruto</a>
-      <a href="https://">Kenya ni landmawe</a>
-      <a href="https://">Siasa mbaya uchumi poa</a>
-      <a href="https://">Weka pesa kwenye bank💰</a>
+  <div class="welcome-card">
+    <div class="lottie-container">
+      <lottie-player src="/src/animations/dancing.json" background="transparent" speed="1"
+        style="width: 200px; height: 200px;" loop autoplay>
+      </lottie-player>
     </div>
+    <div class="welcome-message">
+      <h1>Welcome to Aswito 🎉</h1>
+      <p>
+        Hello We're excited to have you here.
+      </p>
+      Explore the website and discover something amazing.
+      </p>
+    </div>
+  </div>
 
-    <div class="newsletter">
-      <h4>Stay updated</h4>
-      <input type="email" placeholder="Your email">
+  <div class="newsletter">
+    <h3>Stay updated</h3>
+    <form action="" id="newsletter-form">
+      <input type="email" name="email" placeholder="Your email">
       <button>Subscribe</button>
-    </div>
-  </aside>
+    </form>
+  </div>
+
+  <div id="toast" class="toast"></div>
 
   <div class="footer">
     © 2026 web.blog — Clean minimal publishing.
   </div>
 
+  <script src="/src/js/subscribe.js"></script>
   <script src="/src/js/main.js"></script>
 </body>
 
