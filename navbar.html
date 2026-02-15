@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aswito INC - Modern Navbar</title>
+  <style>
+    .navbar {
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 16px 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar h1 {
+      font-size: 20px;
+      font-weight: 500;
+      color: #1a73e8;
+      letter-spacing: -0.5px;
+    }
+
+    .menu-toggle {
+      font-size: 28px;
+      cursor: pointer;
+      color: #5f6368;
+      transition: color 0.2s ease;
+      user-select: none;
+      padding: 4px;
+      border-radius: 4px;
+      transition: background-color 0.2s ease;
+    }
+
+    .menu-toggle:hover {
+      background-color: #f1f3f4;
+    }
+
+    .menu-toggle:active {
+      background-color: #e8eaed;
+    }
+
+    nav {
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background-color: #ffffff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+      opacity: 0;
+    }
+
+    nav.active {
+      max-height: 300px;
+      opacity: 1;
+    }
+
+    nav a {
+      display: block;
+      padding: 16px 20px;
+      color: #202124;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 400;
+      border-bottom: 1px solid #e8eaed;
+      transition: background-color 0.2s ease;
+    }
+
+    nav a:hover {
+      background-color: #f8f9fa;
+    }
+
+    nav a:active {
+      background-color: #f1f3f4;
+    }
+
+    nav a:last-child {
+      border-bottom: none;
+    }
+
+    .btn-navbar {
+      background-color: #1a73e8;
+      color: #ffffff;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 8px;
+      transition: background-color 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    }
+
+    .btn-navbar:hover {
+      background-color: #1765cc;
+      box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.3), 0 4px 8px 3px rgba(60, 64, 67, 0.15);
+    }
+
+    .btn-navbar:active {
+      background-color: #1557b0;
+      box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    }
+
+    /* Ripple effect */
+    .menu-toggle {
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Content spacer */
+    .content {
+      margin-top: 80px;
+      padding: 20px;
+    }
+
+    /* Add smooth animation for menu icon */
+    .menu-toggle.active {
+      color: #1a73e8;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <h1>Aswito INC</h1>
+    <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+    <nav id="nav">
+      <a href="#">How to's</a>
+      <a href="#">About</a>
+      <a href="https://api.aswito.com/sign_in"><button class="btn-navbar">Sign in</button></a>
+    </nav>
+  </div>
+
+  <div class="content">
+    <h2>Welcome to Aswito INC</h2>
+    <p>Click the menu icon to open the navigation.</p>
+  </div>
+
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('nav');
+
+    menuToggle.addEventListener('click', function() {
+      nav.classList.toggle('active');
+      menuToggle.classList.toggle('active');
+    });
+
+    document.addEventListener('click', function(event) {
+      const isClickInsideNav = nav.contains(event.target);
+      const isClickOnToggle = menuToggle.contains(event.target);
+      
+      if (!isClickInsideNav && !isClickOnToggle && nav.classList.contains('active')) {
+        nav.classList.remove('active');
+        menuToggle.classList.remove('active');
+      }
+    });
+
+    const navLinks = nav.querySelectorAll('a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        nav.classList.remove('active');
+        menuToggle.classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>
